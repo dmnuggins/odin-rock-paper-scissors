@@ -27,30 +27,10 @@ images.forEach((image) => {
     })
 })
 
-
-// primary game loop
-function game() {
-
-}
-
 function playRound(playerChoice) {
     const comChoice = computerSelection()
-    console.log(comChoice)
-    if (playerChoice == 'rock') {
-        if (comChoice == 'paper') {
-            comWins += 1
-            console.log("LOSE")
-        }
-        else if (comChoice == 'scissors') {
-            playerWins += 1
-            console.log("WIN")
-        }
-        else {
-            console.log("TIE")
-        }
-    }
-
-    console.log("playround")
+    console.log("Computer chose:", comChoice)
+    validateChoices(playerChoice, comChoice)
 }
 
 // generates random number and returns com choice
@@ -73,7 +53,44 @@ function computerSelection() {
 
 }
 
-
-function playerSelection(weapon) {
-    console.log(weapon)
+function validateChoices(playerChoice, comChoice) {
+    if (playerChoice == 'rock') {
+        if (comChoice == 'scissors') {
+            playerWins += 1
+            console.log("WIN")
+        }
+        else if (comChoice == 'paper') {
+            comWins += 1
+            console.log("LOSE")
+        }
+        else {
+            console.log("TIE")
+        }
+    }
+    else if (playerChoice == 'paper') {
+        if (comChoice == 'rock') {
+            playerWins += 1
+            console.log("WIN")
+        }
+        else if (comChoice == 'scissors') {
+            comWins += 1
+            console.log("LOSE")
+        }
+        else {
+            console.log("TIE")
+        }
+    }
+    else if (playerChoice == 'scissors') {
+        if (comChoice == 'paper') {
+            playerWins += 1
+            console.log("WIN")
+        }
+        else if (comChoice == 'rock') {
+            comWins += 1
+            console.log("LOSE")
+        }
+        else {
+            console.log("TIE")
+        }
+    }
 }
