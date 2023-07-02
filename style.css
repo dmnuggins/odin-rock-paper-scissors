@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.user-interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-input {
+    display: flex;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
+    height: 400px;
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.img-container img {
+    width: 50%;
+    height: 50%;
+}
