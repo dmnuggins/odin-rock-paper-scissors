@@ -13,24 +13,39 @@
  */
 
 const images = document.querySelectorAll('.img-container img')
+let gameOver = false
 let playerTurn = true
 let playerWins = 0
 let comWins = 0
 
-images.forEach((image) => {
-    image.addEventListener('click', () => {
-        const playerChoice = image.alt
+enableUserIn()
 
-        if (playerWins < 5 || comWins < 5) {
-            playRound(playerChoice)
-        }
+function enableUserIn() {
+    images.forEach((image) => {
+        image.addEventListener('click', () => {
+            const playerChoice = image.alt
+            if(!gameOver) {
+                playRound(playerChoice)
+            }
+        })
     })
-})
+}
+
+function disableUserIi() {
+    images.forEach((image) => {
+        image.removeEventListener('click')
+    })
+    console.log("Player DISABLED")
+}
 
 function playRound(playerChoice) {
     const comChoice = computerSelection()
     console.log("Computer chose:", comChoice)
     validateChoices(playerChoice, comChoice)
+    console.log("Player Points:", playerWins)
+    console.log("Computer Points:", comWins)
+    if (playerWins >= 5 || comWins >= 5)
+        gameOver = true
 }
 
 // generates random number and returns com choice
