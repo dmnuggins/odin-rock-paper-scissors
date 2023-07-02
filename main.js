@@ -18,7 +18,11 @@ console.log('Hello World!')
 
 const images = document.querySelectorAll('.img-container img')
 
-console.log(images)
+  images.forEach((image) => {
+    image.addEventListener('click', () => {
+        console.log('Image clicked:', image.alt)
+    })
+  })
 
 // primary game loop
 function game() {
