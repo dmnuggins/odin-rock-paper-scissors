@@ -20,9 +20,12 @@ let comWins = 0
 
 enableUserIn()
 
+
+
 function enableUserIn() {
     images.forEach((image) => {
         image.addEventListener('click', () => {
+            playerTurn = false
             const playerChoice = image.alt
             if(!gameOver) {
                 playRound(playerChoice)
