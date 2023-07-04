@@ -12,7 +12,7 @@
  * IF user/comp reaches max wins (5) first, declare winner
  */
 
-const images = document.querySelectorAll('.img-container img')
+const images = document.querySelectorAll('.card-container img')
 let gameOver = false
 let playerTurn = true
 let playerWins = 0
@@ -21,12 +21,11 @@ let comWins = 0
 enableUserIn()
 
 
-
 function enableUserIn() {
     images.forEach((image) => {
         image.addEventListener('click', () => {
-            playerTurn = false
             const playerChoice = image.alt
+            console.log(playerChoice)
             if(!gameOver) {
                 playRound(playerChoice)
             }
