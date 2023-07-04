@@ -67,10 +67,6 @@ header .game-title {
     padding-bottom: 1rem;
 }
 
-.player-choice, .computer-choice {
-    font-size: 4rem;
-}
-
 .player-container, .com-container, .state-container {
     box-sizing: border-box;
     padding: 1rem;

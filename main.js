@@ -17,6 +17,7 @@ let gameOver = false
 let playerTurn = true
 let playerWins = 0
 let comWins = 0
+let round = 1
 
 enableUserIn()
 
@@ -41,11 +42,17 @@ function disableUserIi() {
 }
 
 function playRound(playerChoice) {
+    round += 1
     const comChoice = computerSelection()
+
+    updateImages(playerChoice, comChoice)
+
     console.log("Computer chose:", comChoice)
     validateChoices(playerChoice, comChoice)
+    updateText()
     console.log("Player Points:", playerWins)
     console.log("Computer Points:", comWins)
+
 
     if (playerWins >= 5 || comWins >= 5)
     {
@@ -53,6 +60,16 @@ function playRound(playerChoice) {
         console.log(gameOver)
         // display reset message
         document.getElementById('reset').style.display = 'block'
+        playerImg = document.getElementById('player-choice')
+        computerImg = document.getElementById('computer-choice')
+        if (playerWins >= 5) {
+            playerImg.src = "./static/winner.png"
+            computerImg.src = "./static/loser.png"
+
+        } else {
+            playerImg.src = "./static/loser.png"
+            computerImg.src = "./static/winner.png"
+        }
     }
 }
 
@@ -116,5 +133,17 @@ function validateChoices(playerChoice, comChoice) {
             console.log("TIE")
         }
     }
-    // update scores on UI
+}
+
+function updateImages(playerChoice, comChoice) {
+    // player image
+    document.getElementById('player-choice').src = "./static/" + playerChoice + ".png"
+    // computer image
+    document.getElementById('computer-choice').src = "./static/" + comChoice + ".png"
+}
+
+function updateText() {
+    document.getElementById('player-score').innerText = playerWins
+    document.getElementById('computer-score').innerText = comWins
+    document.getElementById('round-num').innerText = round
 }
