@@ -46,8 +46,14 @@ function playRound(playerChoice) {
     validateChoices(playerChoice, comChoice)
     console.log("Player Points:", playerWins)
     console.log("Computer Points:", comWins)
+
     if (playerWins >= 5 || comWins >= 5)
+    {
         gameOver = true
+        console.log(gameOver)
+        // display reset message
+        document.getElementById('reset').style.display = 'block'
+    }
 }
 
 // generates random number and returns com choice
@@ -110,4 +116,5 @@ function validateChoices(playerChoice, comChoice) {
             console.log("TIE")
         }
     }
+    // update scores on UI
 }

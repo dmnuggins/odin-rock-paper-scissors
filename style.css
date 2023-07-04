@@ -5,18 +5,23 @@
     padding: 0;
 }
 
-/* *:hover {
-    border: 1px solid red;
-} */
+/*    */
 
 header {
     font-family: 'Anton', sans-serif;
-    font-size: 3rem;
     background-color: #171717;
     color: #F0F0F0;
-    display: flex;
-    justify-content: center;
     padding: 4rem;
+    text-align: center;
+}
+
+header .game-title {
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+
+#reset {
+    display: none;
 }
 
 .content {
