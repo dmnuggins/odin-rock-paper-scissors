@@ -21,7 +21,8 @@ header .game-title {
 }
 
 #reset {
-    display: none;
+    /* display: none; */
+    visibility: hidden;
 }
 
 .content {

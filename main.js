@@ -59,7 +59,8 @@ function playRound(playerChoice) {
         gameOver = true
         console.log(gameOver)
         // display reset message
-        document.getElementById('reset').style.display = 'block'
+        // document.getElementById('reset').style.display = 'block'
+        document.getElementById('reset').style.visibility = 'visible'
         playerImg = document.getElementById('player-choice')
         computerImg = document.getElementById('computer-choice')
         if (playerWins >= 5) {
