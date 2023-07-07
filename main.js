@@ -21,7 +21,6 @@ let round = 1
 
 enableUserIn()
 
-
 function enableUserIn() {
     images.forEach((image) => {
         image.addEventListener('click', () => {
@@ -42,35 +41,38 @@ function disableUserIi() {
 }
 
 function playRound(playerChoice) {
-    round += 1
-    const comChoice = computerSelection()
+    round += 1;
+    const comChoice = computerSelection();
 
-    updateImages(playerChoice, comChoice)
+    updateImages(playerChoice, comChoice);
 
-    console.log("Computer chose:", comChoice)
-    validateChoices(playerChoice, comChoice)
-    updateText()
-    console.log("Player Points:", playerWins)
-    console.log("Computer Points:", comWins)
+    console.log("Computer chose:", comChoice);
+    validateChoices(playerChoice, comChoice);
+    updateText();
+    console.log("Player Points:", playerWins);
+    console.log("Computer Points:", comWins);
 
-
+    updateFavicon(gameOver, playerChoice);
     if (playerWins >= 5 || comWins >= 5)
     {
-        gameOver = true
-        console.log(gameOver)
+        gameOver = true;
+        console.log(gameOver);
         // display reset message
         // document.getElementById('reset').style.display = 'block'
         document.getElementById('reset').style.visibility = 'visible'
-        playerImg = document.getElementById('player-choice')
-        computerImg = document.getElementById('computer-choice')
+        playerImg = document.getElementById('player-choice');
+        computerImg = document.getElementById('computer-choice');
         if (playerWins >= 5) {
-            playerImg.src = "./static/winner.png"
-            computerImg.src = "./static/loser.png"
+            playerImg.src = "./static/winner.png";
+            computerImg.src = "./static/loser.png";
+            document.querySelector("link[rel*='icon']").href="./static/favicons/winner-favicon.ico"
 
         } else {
-            playerImg.src = "./static/loser.png"
-            computerImg.src = "./static/winner.png"
+            playerImg.src = "./static/loser.png";
+            computerImg.src = "./static/winner.png";
+            document.querySelector("link[rel*='icon']").href="./static/favicons/loser-favicon.ico"
         }
+        // update favicon
     }
 }
 
@@ -147,4 +149,11 @@ function updateText() {
     document.getElementById('player-score').innerText = playerWins
     document.getElementById('computer-score').innerText = comWins
     document.getElementById('round-num').innerText = round
+}
+
+function updateFavicon(gameOver, reference) {
+    const faviconLink = document.querySelector("link[rel*='icon']");
+
+    if (!gameOver)
+        faviconLink.href="./static/favicons/" + reference + "-favicon.ico";
 }
